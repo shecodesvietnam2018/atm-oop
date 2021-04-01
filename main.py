@@ -8,11 +8,13 @@ class ATM:
         if amount + self.balance > self.limit:
             raise Exception("Limit exceeded")
         self.balance = self.balance + amount
+        self.history.append(f"Deposit {amount} to account")
 
     def withdraw(self, amount):
         if amount > self.balance:
             raise Exception("Balance cannot be negative")
         self.balance = self.balance - amount
+        self.history.append(f"Withdraw {amount} from account")
 
     def display_history(self):
         print("History:")
